@@ -37,9 +37,10 @@ before_install:
   - pip install python-coveralls --no-cache-dir
   - pip install cloudpickle --no-cache-dir
   - pip install "dask[dataframe]" --no-cache-dir
+  - pip install mimesis --no-cache-dir
   - conda install llvmlite==0.36.0rc1  -c numba
   - python -m pip install --no-deps numpy==1.20
-  - conda install  toolz  pandas multipledispatch jsonschema fsspec mimesis
+  - conda install  toolz  pandas multipledispatch jsonschema fsspec 
  #- pip install multipledispatch
  # - conda install  coverage jsonschema
  # - pip install  bcolz blosc boto3 botocore aiohttp bokeh httpretty chest s3fs cloudpickle 
