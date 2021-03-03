@@ -1,0 +1,26 @@
+# ----------------------------------------------------------------------------
+#
+# Package             : dask
+# Source Repo         : https://github.com/dask/dask
+# Travis Job Link     : https://travis-ci.com/github/asellappen/dask/
+# Created travis.yml  : Yes
+# Maintainer          : Arumugam N S <asellappen@yahoo.com> / Priya Seth<sethp@us.ibm.com>
+#
+# Script License      : Apache License, Version 2 or later
+#
+# ----------------------------------------------------------------------------
+language: python
+dist: focal
+arch:
+ # - amd64
+  - ppc64le
+python:
+  - 3.7
+
+sudo: required
+
+script: 
+  - cd dask/continuous_integration/scripts/
+  - sh install.sh
+  - sh run_tests.sh
+  - sh test_imports.sh
