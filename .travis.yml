@@ -20,7 +20,6 @@ python:
 sudo: required
 
 script: 
-  - cd continuous_integration/scripts/
-  - sh install.sh
-  - sh run_tests.sh
-  - sh test_imports.sh
+  - sh continuous_integration/scripts/install.sh
+  - sh continuous_integration/scripts/run_tests.sh
+  - sh continuous_integration/scripts/test_imports.sh
