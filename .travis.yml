@@ -17,9 +17,9 @@ arch:
   - amd64
   - ppc64le
 
-python:
-  - env: PYTHON_VERSION=3.7
-  - env: PYTHON_VERSION=3.8
+env :
+     - PYTHON_VERSION=3.7
+     - PYTHON_VERSION=3.8
 
 sudo: required
 
