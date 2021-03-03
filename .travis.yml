@@ -10,12 +10,16 @@
 #
 # ----------------------------------------------------------------------------
 language: python
+
 dist: bionic 
+
 arch:
- # - amd64
+  - amd64
   - ppc64le
+
 python:
   - 3.7
+  - 3.8
 
 sudo: required
 
@@ -37,19 +41,12 @@ before_install:
   - pip install python-coveralls --no-cache-dir
   - pip install cloudpickle --no-cache-dir
   - pip install "dask[dataframe]" --no-cache-dir
- # - pip install mimesis --no-cache-dir
   - conda install llvmlite==0.36.0rc1  -c numba
   - python -m pip install --no-deps numpy==1.20
   - conda install  toolz  pandas multipledispatch jsonschema fsspec 
- #- pip install multipledispatch
- # - conda install  coverage jsonschema
- # - pip install  bcolz blosc boto3 botocore aiohttp bokeh httpretty chest s3fs cloudpickle 
- # - conda install  cytoolz distributed graphviz ipython lz4
- # - conda install partd  psutil requests scikit-image scikit-learn
- # - conda install  scipy toolz  python-snappy  python-graphviz pandas-datareader 
- # - conda install  moto flask fastparquet  h5py  zarr fsspec  sqlalchemy
+
 install:
-  #- pip install --no-deps -e .
   - python -m pip install --quiet --no-deps -e .
+
 script: 
   -  python -m pytest -v dask/tests/
