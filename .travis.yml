@@ -20,7 +20,7 @@ python:
 sudo: required
 
 script: 
-  - cd dask/continuous_integration/scripts/
+  - cd continuous_integration/scripts/
   - sh install.sh
   - sh run_tests.sh
   - sh test_imports.sh
