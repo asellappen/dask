@@ -21,6 +21,7 @@ sudo: required
 
 before_install:
   - sudo apt-get install gfortran libopenblas-dev liblapack-dev
+  - sudo apt-get install -y python-pygraphviz
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
         wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh -O miniconda.sh;
     else
@@ -34,9 +35,12 @@ before_install:
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest
   - pip install python-coveralls --no-cache-dir
+  - pip install cloudpickle --no-cache-dir
+  - pip install "dask[dataframe]" --no-cache-dir
   - conda install llvmlite==0.36.0rc1  -c numba
   - python -m pip install --no-deps numpy==1.20
-  -  conda install  toolz
+  - conda install  toolz  pandas multipledispatch jsonschema fsspec mimesis
+ #- pip install multipledispatch
  # - conda install  coverage jsonschema
  # - pip install  bcolz blosc boto3 botocore aiohttp bokeh httpretty chest s3fs cloudpickle 
  # - conda install  cytoolz distributed graphviz ipython lz4
