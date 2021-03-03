@@ -18,9 +18,11 @@ python:
   - 3.7
 
 sudo: required
-install:
+
+before_install:
+  - sudo apt-get install gfortran libopenblas-dev liblapack-dev
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-        wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-ppc64le.sh -O miniconda.sh;
+        wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh -O miniconda.sh;
     else
         wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     fi
@@ -30,9 +32,18 @@ install:
   - conda config --set always_yes yes
   - conda config --set auto_update_conda False
   - conda update -q --all
-#  - pip install --no-deps -e .  
-#  - python setup.py install
+  - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest
+  - pip install python-coveralls --no-cache-dir
+  - conda install llvmlite==0.36.0rc1  -c numba
+  - python -m pip install --no-deps numpy==1.20
+ # - conda install  coverage jsonschema
+ # - pip install  bcolz blosc boto3 botocore aiohttp bokeh httpretty chest s3fs cloudpickle 
+ # - conda install  cytoolz distributed graphviz ipython lz4
+ # - conda install partd  psutil requests scikit-image scikit-learn
+ # - conda install  scipy toolz  python-snappy  python-graphviz pandas-datareader 
+ # - conda install  moto flask fastparquet  h5py  zarr fsspec  sqlalchemy
+install:
+  #- pip install --no-deps -e .
+  - python -m pip install --quiet --no-deps -e .
 script: 
-  - sh continuous_integration/scripts/install.sh
-  - sh continuous_integration/scripts/run_tests.sh
-  - sh continuous_integration/scripts/test_imports.sh
+  -  python -m pytest -v dask/tests/
