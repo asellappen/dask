@@ -53,4 +53,4 @@ install:
 
 script: 
  # -  python -m pytest -v dask
-   -  py.test dask --runslow  --tests-per-worker 4 
+   -   travis_wait 30 py.test dask --runslow  --maxfail=2  --tests-per-worker 6
