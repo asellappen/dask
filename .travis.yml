@@ -39,6 +39,8 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest
+  - pip install pytest-parallel --no-cache-dir
+  - pip install graphviz  --no-cache-dir
   - pip install python-coveralls --no-cache-dir
   - pip install cloudpickle --no-cache-dir
   - pip install "dask[dataframe]" --no-cache-dir
@@ -50,4 +52,5 @@ install:
   - python -m pip install --quiet --no-deps -e .
 
 script: 
-  -  python -m pytest -v dask/tests/
+ # -  python -m pytest -v dask
+   -  py.test dask --runslow  --tests-per-worker 4 
