@@ -52,5 +52,5 @@ install:
   - python -m pip install --quiet --no-deps -e .
 
 script: 
- # -  python -m pytest -v dask
-   -  py.test dask --runslow  --maxfail=2  --tests-per-worker 6
+   -  python -m pytest -v dask --tests-per-worker 6
+ # -  py.test dask --runslow  --maxfail=2  --tests-per-worker 6
