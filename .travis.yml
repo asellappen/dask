@@ -11,7 +11,7 @@
 # ----------------------------------------------------------------------------
 language: python
 
-dist: bionic 
+dist: focal 
 
 matrix:
   include:
