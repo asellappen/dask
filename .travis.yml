@@ -11,7 +11,7 @@
 # ----------------------------------------------------------------------------
 language: python
 
-dist: xenial 
+dist: focal 
 
 matrix:
   include:
