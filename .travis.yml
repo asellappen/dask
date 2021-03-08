@@ -43,7 +43,7 @@ before_install:
   - pip install graphviz  --no-cache-dir
   - pip install python-coveralls --no-cache-dir
   - pip install cloudpickle --no-cache-dir
-  - ip install "dask[dataframe]" --no-cache-dir
+  - pip install "dask[dataframe]" --no-cache-dir
   - conda install llvmlite==0.36.0rc1  -c numba
   - python -m pip install numpy==1.20.1 --no-cache-dir
   - conda install  toolz  pandas multipledispatch jsonschema fsspec 
