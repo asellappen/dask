@@ -44,7 +44,7 @@ before_install:
   - python -m pip install "dask[bag]" 
   - conda install  fsspec toolz fastparquet 
   - conda install llvmlite==0.36.0rc1  -c numba
-  - python -m pip install numpy==1.20.1 --no-cache-dir
+ # - python -m pip install numpy==1.20.1 --no-cache-dir
   - conda install -c anaconda scipy
  # - pip install pytest-parallel --no-cache-dir
  # - pip install graphviz  --no-cache-dir
