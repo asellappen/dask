@@ -47,10 +47,13 @@ before_install:
  # - conda install llvmlite==0.36.0rc1  -c numba
  # - python -m pip install numpy==1.20.1 --no-cache-dir
  # - conda install  toolz  pandas multipledispatch jsonschema fsspec 
+  
+ 
 
 install:
-  - sudo  bash -x ./continuous_integration/scripts/install.sh
-#  - python -m pip install --quiet --no-deps -e .
+ # - python -m pip install --quiet --no-deps -e .
+   - python -m pip install --quiet --no-deps -e .[complete]
+   - conda list
 
 script: 
  #  -  python -m pytest -v dask --tests-per-worker 6
