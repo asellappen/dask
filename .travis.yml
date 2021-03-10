@@ -39,20 +39,22 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest
-  - pip install pytest-parallel --no-cache-dir
-  - pip install graphviz  --no-cache-dir
-  - pip install python-coveralls --no-cache-dir
-  - pip install cloudpickle --no-cache-dir
-  - pip install "dask[dataframe]" --no-cache-dir
-  - conda install llvmlite==0.36.0rc1  -c numba
-  - python -m pip install numpy==1.20.1 --no-cache-dir
-  - conda install  toolz  pandas multipledispatch jsonschema fsspec 
+ # - pip install pytest-parallel --no-cache-dir
+ # - pip install graphviz  --no-cache-dir
+ # - pip install python-coveralls --no-cache-dir
+ # - pip install cloudpickle --no-cache-dir
+ # - pip install "dask[dataframe]" --no-cache-dir
+ # - conda install llvmlite==0.36.0rc1  -c numba
+ # - python -m pip install numpy==1.20.1 --no-cache-dir
+ # - conda install  toolz  pandas multipledispatch jsonschema fsspec 
 
 install:
-  - python -m pip install --quiet --no-deps -e .
+  -  ./continuous_integration/scripts/install.sh
+#  - python -m pip install --quiet --no-deps -e .
 
 script: 
  #  -  python -m pytest -v dask --tests-per-worker 6
  #  -  py.test dask --runslow  --maxfail=2  --tests-per-worker 6
  #  -  py.test dask --runslow  --tests-per-worker 4
-    -  py.test dask --runslow  -n4 
+  #  -  py.test dask --runslow  -n4 
+    -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
