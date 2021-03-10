@@ -47,6 +47,7 @@ before_install:
  # - conda install llvmlite==0.36.0rc1  -c numba
  # - python -m pip install numpy==1.20.1 --no-cache-dir
  # - conda install  toolz  pandas multipledispatch jsonschema fsspec 
+   - pip install pyyaml
   
  
 
