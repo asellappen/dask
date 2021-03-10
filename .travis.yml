@@ -16,9 +16,9 @@ dist: focal
 matrix:
   include:
   - env: PYTHON_VERSION="3.7"
-  #- env: PYTHON_VERSION="3.8"
-  #- env: PYTHON_VERSION="3.7"
-  #  arch: ppc64le
+  - env: PYTHON_VERSION="3.8"
+  - env: PYTHON_VERSION="3.7"
+    arch: ppc64le
   - env: PYTHON_VERSION="3.7"
     arch: ppc64le
 
@@ -39,29 +39,16 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
- # - pip install pyarrow --no-deps
-  - pip install pyarrow==1.0.1 
   - conda install -c conda-forge zarr 
   - pip install "dask[dataframe]" --no-cache-dir
-  - python -m pip install "dask[bag]" 
- # - conda install  fsspec toolz fastparquet
+  - python -m pip install "dask[bag]" --no-cache-dir
   - conda install   toolz 
   - conda install llvmlite==0.36.0rc1  -c numba
- # - python -m pip install numpy==1.20.1 --no-cache-dir
   - conda install -c anaconda scipy
- # - pip install pytest-parallel --no-cache-dir
- # - pip install graphviz  --no-cache-dir
- # - pip install python-coveralls --no-cache-dir
- # - pip install cloudpickle --no-cache-dir
- # - pip install "dask[dataframe]" --no-cache-dir
- # - conda install llvmlite==0.36.0rc1  -c numba
- # - python -m pip install numpy==1.20.1 --no-cache-dir
- # - conda install  toolz  pandas multipledispatch jsonschema fsspec 
- 
- 
-
+  - if [[ "$TRAVIS_CPU_ARCH" <> "ppc64le" ]]; then 
+       pip install pyarrow==1.0.1 ;
+    fi
 install:
- # - python -m pip install --quiet --no-deps -e .
    - python -m pip install --quiet --no-deps -e .[complete]
    - conda list
 
