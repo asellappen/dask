@@ -40,7 +40,7 @@ before_install:
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
   - pip install pyarrow
-  - conda install -c conda-forge pyarrow zarr 
+  - conda install -c conda-forge zarr 
   - pip install "dask[dataframe]" --no-cache-dir
   - python -m pip install "dask[bag]" 
   - conda install  fsspec toolz fastparquet 
