@@ -39,6 +39,9 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
+  - pip install "dask[dataframe]" --no-cache-dir
+  - python -m pip install "dask[bag]" 
+  - conda install  fsspec toolz
  # - pip install pytest-parallel --no-cache-dir
  # - pip install graphviz  --no-cache-dir
  # - pip install python-coveralls --no-cache-dir
