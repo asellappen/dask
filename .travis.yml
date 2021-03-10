@@ -49,7 +49,7 @@ before_install:
  # - conda install  toolz  pandas multipledispatch jsonschema fsspec 
 
 install:
-  -  ./continuous_integration/scripts/install.sh
+  - sudo  bash -x ./continuous_integration/scripts/install.sh
 #  - python -m pip install --quiet --no-deps -e .
 
 script: 
