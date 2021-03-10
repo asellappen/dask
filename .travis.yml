@@ -39,7 +39,7 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
-  - pip install pyarrow
+  - pip install pyarrow --no-deps
   - conda install -c conda-forge zarr 
   - pip install "dask[dataframe]" --no-cache-dir
   - python -m pip install "dask[bag]" 
