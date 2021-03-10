@@ -59,5 +59,6 @@ script:
  #  -  python -m pytest -v dask --tests-per-worker 6
  #  -  py.test dask --runslow  --maxfail=2  --tests-per-worker 6
  #  -  py.test dask --runslow  --tests-per-worker 4
-  #  -  py.test dask --runslow  -n4 
-    -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
+    -  py.test dask --runslow  -n4 
+   # -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
+ 
