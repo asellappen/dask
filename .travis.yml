@@ -43,7 +43,8 @@ before_install:
   - conda install -c conda-forge zarr 
   - pip install "dask[dataframe]" --no-cache-dir
   - python -m pip install "dask[bag]" 
-  - conda install  fsspec toolz fastparquet 
+ # - conda install  fsspec toolz fastparquet
+  - conda install   toolz 
   - conda install llvmlite==0.36.0rc1  -c numba
  # - python -m pip install numpy==1.20.1 --no-cache-dir
   - conda install -c anaconda scipy
