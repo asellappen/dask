@@ -39,9 +39,13 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
+  - conda install -c conda-forge pyarrow zarr 
   - pip install "dask[dataframe]" --no-cache-dir
   - python -m pip install "dask[bag]" 
-  - conda install  fsspec toolz
+  - conda install  fsspec toolz fastparquet 
+  - conda install llvmlite==0.36.0rc1  -c numba
+  - python -m pip install numpy==1.20.1 --no-cache-dir
+  - conda install -c anaconda scipy
  # - pip install pytest-parallel --no-cache-dir
  # - pip install graphviz  --no-cache-dir
  # - pip install python-coveralls --no-cache-dir
