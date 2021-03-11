@@ -55,7 +55,7 @@ install:
 script: 
    # - python -m pytest -v dask/tests/
      - py.test dask/tests/ --runslow  -n2
-     - py.test dask/array --runslow  -n2
+     - travis_wait 30 py.test dask/array --runslow  -n2
      - py.test dask/bag --runslow  -n2
      - py.test dask/bytes --runslow  -n2
      - py.test dask/diagnostics --runslow  -n2
