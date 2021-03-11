@@ -26,33 +26,33 @@ sudo: required
 
 before_install:
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-        sudo wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-ppc64le.sh -O miniconda.sh;
+         wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-ppc64le.sh -O miniconda.sh;
     else
-        sudo wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+         wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     fi
-  - sudo bash miniconda.sh -b -p $HOME/miniconda
+  - bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
   - hash -r
-  - sudo conda config --set always_yes yes
-  - sudo conda config --set auto_update_conda False
-  - sudo conda update -q --all
-  - sudo conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
-  - sudo pip install pytest-parallel
-  - sudo conda install -c conda-forge zarr 
-  - sudo pip install "dask[dataframe]" --no-cache-dir
-  - sudo python -m pip install "dask[bag]" --no-cache-dir
-  - sudo conda install   toolz 
-  - sudo conda install llvmlite==0.36.0rc1  -c numba
-  - sudo conda install -c anaconda scipy
+  - conda config --set always_yes yes
+  - conda config --set auto_update_conda False
+  - conda update -q --all
+  - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
+  - pip install pytest-parallel
+  - conda install -c conda-forge zarr 
+  - pip install "dask[dataframe]" --no-cache-dir
+  - python -m pip install "dask[bag]" --no-cache-dir
+  - conda install   toolz 
+  - conda install llvmlite==0.36.0rc1  -c numba
+  - conda install -c anaconda scipy
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
-       sudo pip install pyarrow==1.0.1 ;
+       pip install pyarrow==1.0.1 ;
     fi
 install:
-   - sudo python -m pip install --quiet --no-deps -e .[complete]
-   - sudo conda list
+   - python -m pip install --quiet --no-deps -e .[complete]
+   - conda list
 
 script: 
    # - python -m pytest -v dask/tests/
-     - sudo py.test dask --runslow  -n3
+     - py.test dask --runslow  -n2
    # -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
  
