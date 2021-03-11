@@ -39,8 +39,10 @@ before_install:
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
   - pip install pytest-parallel
   - conda install -c conda-forge zarr 
-  - pip install "dask[dataframe]" --no-cache-dir
-  - python -m pip install "dask[bag]" --no-cache-dir
+  #- pip install "dask[dataframe]" --no-cache-dir
+  #- python -m pip install "dask[bag]" --no-cache-dir
+  - conda install "dask[dataframe]" 
+  - conda install "dask[bag]" 
   - conda install   toolz 
   #- conda install llvmlite==0.36.0rc1  -c numba
   - conda install llvmlite
