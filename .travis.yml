@@ -53,6 +53,6 @@ install:
 
 script: 
    # - python -m pytest -v dask/tests/
-     -  py.test dask --runslow  -n4  -x test_setitem_extended_API 
+     -  py.test dask --runslow  -n4  -e test_setitem_extended_API.py
    # -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
  
