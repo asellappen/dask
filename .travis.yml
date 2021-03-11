@@ -15,10 +15,10 @@ dist: focal
 
 matrix:
   include:
-  - env: PYTHON_VERSION="3.7"
-  - env: PYTHON_VERSION="3.8"
-  - env: PYTHON_VERSION="3.7"
-    arch: ppc64le
+  #- env: PYTHON_VERSION="3.7"
+  #- env: PYTHON_VERSION="3.8"
+  #- env: PYTHON_VERSION="3.7"
+  #  arch: ppc64le
   - env: PYTHON_VERSION="3.8"
     arch: ppc64le
 
@@ -37,6 +37,7 @@ before_install:
   - conda config --set auto_update_conda False
   - conda update -q --all
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
+  - pip install pytest-parallel
   - conda install -c conda-forge zarr 
   - pip install "dask[dataframe]" --no-cache-dir
   - python -m pip install "dask[bag]" --no-cache-dir
@@ -51,6 +52,7 @@ install:
    - conda list
 
 script: 
-    -  py.test dask --runslow  -n4 
+   # - python -m pytest -v dask/tests/
+     -  py.test dask --runslow  -n4 
    # -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
  
