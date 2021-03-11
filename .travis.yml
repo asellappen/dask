@@ -32,7 +32,7 @@ before_install:
     fi
   - sudo bash miniconda.sh -b -p $HOME/miniconda
   - export PATH="$HOME/miniconda/bin:$PATH"
-  - sudo hash -r
+  - hash -r
   - sudo conda config --set always_yes yes
   - sudo conda config --set auto_update_conda False
   - sudo conda update -q --all
