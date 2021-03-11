@@ -42,7 +42,8 @@ before_install:
   - pip install "dask[dataframe]" --no-cache-dir
   - python -m pip install "dask[bag]" --no-cache-dir
   - conda install   toolz 
-  - conda install llvmlite==0.36.0rc1  -c numba
+  #- conda install llvmlite==0.36.0rc1  -c numba
+  - conda install llvmlite
   - conda install -c anaconda scipy
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
        pip install pyarrow==1.0.1 ;
@@ -53,6 +54,6 @@ install:
 
 script: 
    # - python -m pytest -v dask/tests/
-     - py.test dask --runslow  -n2
+     - py.test dask --runslow  -n3
    # -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
  
