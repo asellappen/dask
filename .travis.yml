@@ -15,15 +15,12 @@ dist: focal
 
 matrix:
   include:
- # - env: PYTHON_VERSION="3.7"
+  - env: PYTHON_VERSION="3.7"
   - env: PYTHON_VERSION="3.8"
-  - env: PYTHON_VERSION="3.9"
- # - env: PYTHON_VERSION="3.7"
- #   arch: ppc64le
- # - env: PYTHON_VERSION="3.8"
- #   arch: ppc64le
- # - env: PYTHON_VERSION="3.9"
- #   arch: ppc64le
+  - env: PYTHON_VERSION="3.7"
+    arch: ppc64le
+  - env: PYTHON_VERSION="3.8"
+    arch: ppc64le
 
 sudo: required
 
@@ -49,11 +46,7 @@ before_install:
   - conda install llvmlite==0.36.0rc1  -c numba
   - conda install -c anaconda scipy
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
-       if [[PYTHON_VERSION ==  3.9 ]]; then 
-        pip install pyarrow;
-       else
         pip install pyarrow==1.0.1;
-       fi
     fi  
 
 install:
