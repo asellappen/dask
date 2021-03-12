@@ -42,7 +42,7 @@ before_install:
   #- pip install "dask[dataframe]" --no-cache-dir
   #- python -m pip install "dask[bag]" --no-cache-dir
   - conda install "dask[dataframe]" 
-  - conda install "dask[bag]" 
+  #- conda install "dask[bag]" 
   - conda install   toolz 
   - conda install llvmlite==0.36.0rc1  -c numba
  # - conda install llvmlite
@@ -50,7 +50,7 @@ before_install:
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
       pip install pyarrow==1.0.1 ;
     else
-     conda install -c conda-forge pyarrow;
+     conda install -c conda-forge pyarrow==0.17.0;
     fi  
     #else
     #  wget https://anaconda.org/conda-forge/pyarrow/0.17.0/download/linux-ppc64le/pyarrow-0.17.0-py38hd6567cd_0.tar.bz2 -O pyarrow.tar.bz2;
