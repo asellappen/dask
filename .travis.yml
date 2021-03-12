@@ -49,10 +49,11 @@ before_install:
   - conda install -c anaconda scipy
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
       pip install pyarrow==1.0.1 ;
+    fi  
     #else
     #  wget https://anaconda.org/conda-forge/pyarrow/0.17.0/download/linux-ppc64le/pyarrow-0.17.0-py38hd6567cd_0.tar.bz2 -O pyarrow.tar.bz2;
     #  tar -xvf pyarrow.tar.bz2;
-    fi
+    #fi
 install:
    - python -m pip install --quiet --no-deps -e .[complete]
    - conda list
