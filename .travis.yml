@@ -61,7 +61,7 @@ install:
    - conda list
 
 script: 
-    - python -m pytest -v dask  --runslow  -n5 --ignore=dask/array/tests/test_array_core.py
+    - travis_wait 30 python -m pytest -v dask  --runslow  -n5 --ignore=dask/array/tests/test_array_core.py
 
    #  - py.test dask/tests/ --runslow  -n5
    #  - py.test dask/bytes --runslow  -n5
