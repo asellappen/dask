@@ -39,10 +39,8 @@ before_install:
   - conda config --set always_yes yes
   - conda config --set auto_update_conda False
   - conda update -q --all
-  - conda install  pytest-rerunfailures moto flask fastparquet h5py pytables  fsspec sqlalchemy coverage jsonschema bcolz blosc
   - pip install tiledb-py
-  - conda install  boto3 botocore bokeh httpretty aiohttp chest
-  - conda install  s3fs crick cytoolz distributed graphviz ipython lz4
+  - conda install h5py pytables 
   - conda install  partd psutil requests scikit-image scikit-learn 
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
   - pip install pytest-parallel
