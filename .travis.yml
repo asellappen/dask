@@ -47,9 +47,10 @@ before_install:
   - conda install llvmlite==0.36.0rc1  -c numba
   - conda install llvmlite
   - conda install -c anaconda scipy
-  - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
-       pip install pyarrow==1.0.1 ;
-    fi
+  - pip install pyarrow==1.0.1 
+ # - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
+ #      pip install pyarrow==1.0.1 ;
+ #   fi
 install:
    - python -m pip install --quiet --no-deps -e .[complete]
    - conda list
