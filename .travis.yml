@@ -49,7 +49,7 @@ before_install:
   - conda install llvmlite==0.36.0rc1  -c numba
   - conda install -c anaconda scipy
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
-     - if [[PYTHON_VERSION ==  3.9 ]]; then 
+       if [[PYTHON_VERSION ==  3.9 ]]; then 
         pip install pyarrow;
        else
         pip install pyarrow==1.0.1;
