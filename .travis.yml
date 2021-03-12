@@ -39,7 +39,6 @@ before_install:
   - conda config --set always_yes yes
   - conda config --set auto_update_conda False
   - conda update -q --all
-  - pip install tiledb-py
   - conda install h5py pytables 
   - conda install  partd psutil requests scikit-image scikit-learn 
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
