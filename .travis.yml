@@ -55,11 +55,11 @@ install:
    - conda list
 
 script: 
-   # - python -m pytest -v dask/tests/
+    - python -m pytest -v dask  --runslow  -n5
    #  - py.test dask/tests/ --runslow  -n5
    #  - py.test dask/bytes --runslow  -n5
    #  - py.test dask/diagnostics --runslow  -n5
    #  - py.test dask/bag --runslow  -n4
    #  - travis_wait 30 py.test dask/array --runslow  -n6
    #  -  py.test dask --runslow --cov=dask --cov-report=xml -n4 
-     -  travis_wait 15 py.test dask --runslow  -n6
+   #  -  travis_wait 15 py.test dask --runslow  -n6
