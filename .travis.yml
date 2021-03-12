@@ -15,9 +15,9 @@ dist: focal
 
 matrix:
   include:
-  - env: PYTHON_VERSION="3.7"
+ # - env: PYTHON_VERSION="3.7"
   - env: PYTHON_VERSION="3.8"
-  - env: PYTHON_VERSION="3.9"
+ # - env: PYTHON_VERSION="3.9"
  # - env: PYTHON_VERSION="3.7"
  #   arch: ppc64le
  # - env: PYTHON_VERSION="3.8"
@@ -39,6 +39,10 @@ before_install:
   - conda config --set always_yes yes
   - conda config --set auto_update_conda False
   - conda update -q --all
+  - conda install  pytest-rerunfailures moto flask fastparquet h5py pytables tiledb-py fsspec sqlalchemy coverage jsonschema bcolz blosc
+  - conda install  boto3 botocore bokeh httpretty aiohttp chest
+  - conda install  s3fs crick cytoolz distributed graphviz ipython lz4
+  - conda install  partd psutil requests scikit-image scikit-learn 
   - conda install python=$PYTHON_VERSION pip  pytest-xdist pytest pyyaml
   - pip install pytest-parallel
   - conda install -c conda-forge zarr 
@@ -46,9 +50,12 @@ before_install:
   - conda install   toolz 
   - conda install llvmlite==0.36.0rc1  -c numba
   - conda install -c anaconda scipy
-  #- pip install pyarrow==1.0.1;
   - if [[ "$TRAVIS_CPU_ARCH" !=  "ppc64le" ]]; then 
-      conda install pyarrow;
+     - if [[PYTHON_VERSION ==  3.9 ]]; then 
+        pip install pyarrow;
+       else
+        pip install pyarrow==1.0.1;
+       fi
     fi  
 
 install:
